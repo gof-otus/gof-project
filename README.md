@@ -1,1 +1,3 @@
-# gof-project
+# gof-project	
+Участники:
+1. Новиков Д.В.
