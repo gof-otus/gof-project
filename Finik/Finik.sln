@@ -5,7 +5,11 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik", "Finik\Finik.csproj", "{A8AA7282-519A-473E-BA6C-32C54D573BE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GofWebApi", "GofWebApi\GofWebApi.csproj", "{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GofWebApi", "GofWebApi\GofWebApi.csproj", "{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{380E100B-651C-4E71-9734-F514828BBAED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{3E8ADF68-DAB8-4DE3-A757-A6626244A205}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C} = {3E8ADF68-DAB8-4DE3-A757-A6626244A205}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAB70B0D-69E0-4E05-968C-901A4AE42984}
