@@ -5,17 +5,7 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik", "Finik\Finik.csproj", "{A8AA7282-519A-473E-BA6C-32C54D573BE1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GofWebApi", "GofWebApi\GofWebApi.csproj", "{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{4A848EB5-183D-40FD-B548-CEA9522B2B08}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosts", "Hosts", "{5AD12DEA-3E5A-4449-8742-1E102F8AA475}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{FC24FAAD-4553-45B9-81D9-AD65CF1856D7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F025C19B-7295-4606-A6C8-31D71C4AC8A1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Entities", "Domain.Entities\Domain.Entities.csproj", "{824751F8-E93B-4582-923F-BA2609FB685C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GofWebApi", "GofWebApi\GofWebApi.csproj", "{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,17 +21,9 @@ Global
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{824751F8-E93B-4582-923F-BA2609FB685C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{824751F8-E93B-4582-923F-BA2609FB685C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{824751F8-E93B-4582-923F-BA2609FB685C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{824751F8-E93B-4582-923F-BA2609FB685C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C} = {5AD12DEA-3E5A-4449-8742-1E102F8AA475}
-		{824751F8-E93B-4582-923F-BA2609FB685C} = {4A848EB5-183D-40FD-B548-CEA9522B2B08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAB70B0D-69E0-4E05-968C-901A4AE42984}
