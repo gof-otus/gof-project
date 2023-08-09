@@ -7,6 +7,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik", "Finik\Finik.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GofWebApi", "GofWebApi\GofWebApi.csproj", "{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleArchitecture", "ExampleArchitecture", "{B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.Core", "Finik.Core\Finik.Core.csproj", "{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.Infrastructure", "Finik.Infrastructure\Finik.Infrastructure.csproj", "{1C0A20D6-F009-45EA-AB13-83071879ED38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.EfData", "Finik.EfData\Finik.EfData.csproj", "{919FB539-1FF1-4AF4-A5AD-729C6D754D19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.Web", "Finik.Web\Finik.Web.csproj", "{7058D30B-CD30-45AD-9463-E4BCE0C2D65C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.Models", "Finik.Models\Finik.Models.csproj", "{2F975983-38F5-472C-9116-5BC0F4646FF2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,11 +33,38 @@ Global
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{224AD7AC-AAE5-4192-BFE8-DD9B984A153C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0A20D6-F009-45EA-AB13-83071879ED38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0A20D6-F009-45EA-AB13-83071879ED38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0A20D6-F009-45EA-AB13-83071879ED38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0A20D6-F009-45EA-AB13-83071879ED38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919FB539-1FF1-4AF4-A5AD-729C6D754D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919FB539-1FF1-4AF4-A5AD-729C6D754D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919FB539-1FF1-4AF4-A5AD-729C6D754D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919FB539-1FF1-4AF4-A5AD-729C6D754D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7058D30B-CD30-45AD-9463-E4BCE0C2D65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7058D30B-CD30-45AD-9463-E4BCE0C2D65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7058D30B-CD30-45AD-9463-E4BCE0C2D65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7058D30B-CD30-45AD-9463-E4BCE0C2D65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F975983-38F5-472C-9116-5BC0F4646FF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F975983-38F5-472C-9116-5BC0F4646FF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F975983-38F5-472C-9116-5BC0F4646FF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F975983-38F5-472C-9116-5BC0F4646FF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAB70B0D-69E0-4E05-968C-901A4AE42984}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E9E103A-C5FD-44AB-B467-8C3A7B1655DC} = {B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}
+		{1C0A20D6-F009-45EA-AB13-83071879ED38} = {B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}
+		{919FB539-1FF1-4AF4-A5AD-729C6D754D19} = {B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}
+		{7058D30B-CD30-45AD-9463-E4BCE0C2D65C} = {B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}
+		{2F975983-38F5-472C-9116-5BC0F4646FF2} = {B710E52C-AC4E-4A46-B0EA-A90D2CF9ADCA}
 	EndGlobalSection
 EndGlobal
