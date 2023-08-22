@@ -18,7 +18,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<INewsManager, NewsManager>();
 builder.Services.AddScoped<INewsDbRepository, NewsEfRepository>();
 builder.Services.AddScoped<IUsersDbRepository, UsersEfRepository>();
-builder.Services.AddScoped<DbContext, FinikDbContext>();
 builder.Services.AddAutoMapper(typeof(NewsProfile));
 var connectionString = builder.Configuration.GetConnectionString("PostgresFinikDb");
 builder.Services.AddDbContext<FinikDbContext>(options =>
