@@ -4,9 +4,9 @@ namespace Finik.DbData;
 
 public interface IUsersDbRepository
 {
-    public Task<IReadOnlyList<User>> GetAllUsersAsync();
-    public Task<User?> GetUserAsync(int id);
-    public Task<User> CreateUserAsync(User user);
-    public Task DeleteUserAsync(int id);
-    public Task UpdateUserAsync(User user);
+    public Task<IReadOnlyList<User>> GetAllUsers();
+    public Task<User?> GetUser(int id);
+    public Task<User> CreateUser(User user);
+    public Task DeleteUser(int id);
+    public Task UpdateUser(User user);
 }

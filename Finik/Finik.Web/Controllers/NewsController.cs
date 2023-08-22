@@ -17,13 +17,13 @@ namespace Finik.Web.Controllers
         [HttpGet]
         public async Task<IReadOnlyList<NewsDto>> Get()
         {
-            return await _newsManager.GetAllNewsAsync();
+            return await _newsManager.GetAllNews();
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> Get(int id)
         {
-            var news = await _newsManager.GetNewsAsync(id);
+            var news = await _newsManager.GetNews(id);
             if (news == null) { return NotFound(); }
             return Ok(news);
         }
@@ -31,7 +31,7 @@ namespace Finik.Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] NewsDto value)
         {
-            var result = await _newsManager.CreateNewsAsync(value);
+            var result = await _newsManager.CreateNews(value);
             if (result == null) { return BadRequest(); }
             return Ok(result);
         }
@@ -40,13 +40,13 @@ namespace Finik.Web.Controllers
         public async Task Put(int id, [FromBody] NewsDto value)
         {
             value.Id = id;
-            await _newsManager.UpdateNewsAsync(value);
+            await _newsManager.UpdateNews(value);
         }
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
-           await _newsManager.DeleteNewsAsync(id);
+           await _newsManager.DeleteNews(id);
         }
     }
 }

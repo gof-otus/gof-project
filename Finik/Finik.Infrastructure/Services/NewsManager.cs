@@ -17,35 +17,35 @@ public class NewsManager : INewsManager
         _dbRepository = dbRepository;
     }
 
-    public async Task<NewsDto> CreateNewsAsync(NewsDto newsDto)
+    public async Task<NewsDto> CreateNews(NewsDto newsDto)
     {
         var newsEntity = _mapper.Map<News>(newsDto);
-        var existedNews = await _dbRepository.GetNewsAsync(newsDto.Id);
+        var existedNews = await _dbRepository.GetNews(newsDto.Id);
         if (existedNews == null)
         {
-            await _dbRepository.CreateNewsAsync(newsEntity);
+            await _dbRepository.CreateNews(newsEntity);
             return _mapper.Map<NewsDto>(newsEntity);
         }
         throw new NewsException("Already exist");
     }
 
-    public async Task DeleteNewsAsync(int id) => await _dbRepository.DeleteNewsAsync(id);
+    public async Task DeleteNews(int id) => await _dbRepository.DeleteNews(id);
 
-    public async Task<IReadOnlyList<NewsDto>> GetAllNewsAsync()
+    public async Task<IReadOnlyList<NewsDto>> GetAllNews()
     {
-        var allNews = await _dbRepository.GetAllNewsAsync();
+        var allNews = await _dbRepository.GetAllNews();
         return _mapper.Map<IReadOnlyList<NewsDto>>(allNews);
     }
 
-    public async Task<NewsDto?> GetNewsAsync(int id)
+    public async Task<NewsDto?> GetNews(int id)
     {
-        var newsEntity = await _dbRepository.GetNewsAsync(id);
+        var newsEntity = await _dbRepository.GetNews(id);
         return _mapper.Map<NewsDto>(newsEntity);
     }
 
-    public async Task UpdateNewsAsync(NewsDto newsDto)
+    public async Task UpdateNews(NewsDto newsDto)
     {
         var newsEntity = _mapper.Map<News>(newsDto);
-        await _dbRepository.UpdateNewsAsync(newsEntity);
+        await _dbRepository.UpdateNews(newsEntity);
     }
 }

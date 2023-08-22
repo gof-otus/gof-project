@@ -4,9 +4,9 @@ namespace Finik.Core.Abstractions.Services;
 
 public interface INewsManager
 {
-    public Task<IReadOnlyList<NewsDto>> GetAllNewsAsync();
-    public Task<NewsDto?> GetNewsAsync(int id);
-    public Task<NewsDto> CreateNewsAsync(NewsDto news);
-    public Task DeleteNewsAsync(int id);
-    public Task UpdateNewsAsync(NewsDto news);
+    public Task<IReadOnlyList<NewsDto>> GetAllNews();
+    public Task<NewsDto?> GetNews(int id);
+    public Task<NewsDto> CreateNews(NewsDto news);
+    public Task DeleteNews(int id);
+    public Task UpdateNews(NewsDto news);
 }
