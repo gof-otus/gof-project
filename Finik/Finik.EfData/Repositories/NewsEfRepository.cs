@@ -20,7 +20,7 @@ public class NewsEfRepository : INewsDbRepository
 
     public async Task DeleteNewsAsync(int id)
     {
-        var newsToDelete = await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.NewsId == id);
+        var newsToDelete = await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == id);
         if (newsToDelete is not null)
         {
             _dbContext.Set<News>().Remove(newsToDelete);
@@ -30,12 +30,12 @@ public class NewsEfRepository : INewsDbRepository
 
     public async Task<IReadOnlyList<News>> GetAllNewsAsync() => await _dbContext.Set<News>().Include(n => n.Author).ToListAsync();
 
-    public async Task<News?> GetNewsAsync(int id) => await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.NewsId == id);
+    public async Task<News?> GetNewsAsync(int id) => await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == id);
 
     public async Task UpdateNewsAsync(News news)
     {
-        var newsToUpdate = await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.NewsId == news.NewsId) 
-            ?? throw new ArgumentException($"New with id {news.NewsId} doesn't exits");
+        var newsToUpdate = await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == news.Id) 
+            ?? throw new ArgumentException($"New with id {news.Id} doesn't exits");
         _dbContext.Set<News>().Update(news);
         await _dbContext.SaveChangesAsync();
     }

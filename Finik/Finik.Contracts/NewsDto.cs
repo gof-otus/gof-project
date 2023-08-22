@@ -2,7 +2,7 @@
 
 public class NewsDto
 {
-    public int NewsId { get; set; }
+    public int Id { get; set; }
 
     public required string HeadLine { get; set; }
 

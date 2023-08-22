@@ -39,7 +39,7 @@ namespace Finik.Web.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, [FromBody] NewsDto value)
         {
-            value.NewsId = id;
+            value.Id = id;
             await _newsManager.UpdateNewsAsync(value);
         }
 

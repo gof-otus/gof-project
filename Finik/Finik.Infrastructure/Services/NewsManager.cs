@@ -20,7 +20,7 @@ public class NewsManager : INewsManager
     public async Task<NewsDto> CreateNewsAsync(NewsDto newsDto)
     {
         var newsEntity = _mapper.Map<News>(newsDto);
-        var existedNews = await _dbRepository.GetNewsAsync(newsDto.NewsId);
+        var existedNews = await _dbRepository.GetNewsAsync(newsDto.Id);
         if (existedNews == null)
         {
             await _dbRepository.CreateNewsAsync(newsEntity);
