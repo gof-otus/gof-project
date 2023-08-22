@@ -1,5 +1,4 @@
-﻿using Finik.Data.Configurations;
-using Finik.Models;
+﻿using Finik.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Finik.Data;
@@ -12,7 +11,5 @@ public class FinikDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfiguration(new NewsDbConfiguration());
-        modelBuilder.ApplyConfiguration(new UserDbConfiguration());
     }
 }
