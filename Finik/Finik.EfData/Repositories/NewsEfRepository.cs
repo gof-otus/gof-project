@@ -34,8 +34,8 @@ public class NewsEfRepository : INewsDbRepository
 
     public async Task UpdateNewsAsync(News news)
     {
-        var newsToUpdate = await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == news.Id) 
-            ?? throw new ArgumentException($"New with id {news.Id} doesn't exits");
+        if (await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == news.Id) is null) 
+            throw new ArgumentException($"New with id {news.Id} doesn't exits");
         _dbContext.Set<News>().Update(news);
         await _dbContext.SaveChangesAsync();
     }
