@@ -28,7 +28,7 @@ public class UsersEfRepository : IUsersDbRepository
         }
     }
 
-    public async Task<IEnumerable<User>> GetAllUsersAsync() => await _dbContext.Set<User>().ToListAsync();
+    public async Task<IReadOnlyList<User>> GetAllUsersAsync() => await _dbContext.Set<User>().ToListAsync();
 
     public async Task<User?> GetUserAsync(int id) => await _dbContext.Set<User>().SingleOrDefaultAsync(n => n.UserId == id);
 

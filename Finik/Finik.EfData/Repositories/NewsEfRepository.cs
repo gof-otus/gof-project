@@ -28,10 +28,9 @@ public class NewsEfRepository : INewsDbRepository
         }
     }
 
-    public async Task<IEnumerable<News>> GetAllNewsAsync() => await _dbContext.Set<News>().Include(n => n.Author).ToListAsync();
+    public async Task<IReadOnlyList<News>> GetAllNewsAsync() => await _dbContext.Set<News>().Include(n => n.Author).ToListAsync();
 
     public async Task<News?> GetNewsAsync(int id) => await _dbContext.Set<News>().Include(n => n.Author).SingleOrDefaultAsync(n => n.NewsId == id);
-
 
     public async Task UpdateNewsAsync(News news)
     {

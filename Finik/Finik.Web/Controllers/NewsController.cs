@@ -15,7 +15,7 @@ namespace Finik.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<NewsDto>> Get()
+        public async Task<IReadOnlyList<NewsDto>> Get()
         {
             return await _newsManager.GetAllNewsAsync();
         }

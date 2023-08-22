@@ -31,10 +31,10 @@ public class NewsManager : INewsManager
 
     public async Task DeleteNewsAsync(int id) => await _dbRepository.DeleteNewsAsync(id);
 
-    public async Task<IEnumerable<NewsDto>> GetAllNewsAsync()
+    public async Task<IReadOnlyList<NewsDto>> GetAllNewsAsync()
     {
         var allNews = await _dbRepository.GetAllNewsAsync();
-        return _mapper.Map<List<NewsDto>>(allNews);
+        return _mapper.Map<IReadOnlyList<NewsDto>>(allNews);
     }
 
     public async Task<NewsDto?> GetNewsAsync(int id)
