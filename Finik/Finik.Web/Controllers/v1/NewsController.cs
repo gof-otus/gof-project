@@ -2,9 +2,10 @@
 using Finik.Core.Abstractions.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Finik.Web.Controllers
+namespace Finik.Web.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiVersion("1.0")]
     [ApiController]
     public class NewsController : ControllerBase
     {
@@ -46,7 +47,7 @@ namespace Finik.Web.Controllers
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
-           await _newsManager.DeleteNews(id);
+            await _newsManager.DeleteNews(id);
         }
     }
 }
