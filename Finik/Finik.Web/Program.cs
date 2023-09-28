@@ -1,50 +1,16 @@
-using Finik.Core.Abstractions.Services;
-using Finik.Data;
-using Finik.Data.Repositories;
-using Finik.DbData;
-using Finik.Infrastructure.Mappers;
-using Finik.Infrastructure.Services;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using WebApplication1;
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddApiVersioning(options =>
+public class Program
 {
-    options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = ApiVersion.Default;
-});
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddScoped<INewsManager, NewsManager>();
-builder.Services.AddScoped<INewsDbRepository, NewsEfRepository>();
-builder.Services.AddScoped<IUsersDbRepository, UsersEfRepository>();
-builder.Services.AddAutoMapper(typeof(NewsProfile));
-var connectionString = builder.Configuration.GetConnectionString("PostgresFinikDb");
-builder.Services.AddDbContext<FinikDbContext>(options =>
-{
-    options.UseNpgsql(connectionString);
-});
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
