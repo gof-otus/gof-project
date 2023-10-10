@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Finik.NewsService.Contracts\Finik.NewsService.Contracts.csproj" />
+      <ProjectReference Include="..\Finik.NewsService.Core\Finik.NewsService.Core.csproj" />
+      <ProjectReference Include="..\Finik.NewsService.DbData\Finik.NewsService.DbData.csproj" />
+      <ProjectReference Include="..\Finik.NewsService.Models\Finik.NewsService.Models.csproj" />
+    </ItemGroup>
+
+
+</Project>
