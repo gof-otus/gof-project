@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.Contracts", "Finik.NewsService.Contracts\Finik.NewsService.Contracts.csproj", "{B823884D-9BD3-4604-8980-F597E36E7870}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.Core", "Finik.NewsService.Core\Finik.NewsService.Core.csproj", "{2D3CB43A-317E-4BED-813B-3E2C996A4B82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.DbData", "Finik.NewsService.DbData\Finik.NewsService.DbData.csproj", "{F8E620A1-8E7A-41E7-85AF-A2FFFCF094C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.EfData", "Finik.NewsService.EfData\Finik.NewsService.EfData.csproj", "{CF0ED797-C837-4AD7-9209-1AF56E053EDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.Infrastructure", "Finik.NewsService.Infrastructure\Finik.NewsService.Infrastructure.csproj", "{11DE875A-4B43-421A-A125-6F873E400839}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.Models", "Finik.NewsService.Models\Finik.NewsService.Models.csproj", "{4D562FB2-4A5D-4C65-954D-C89E7DAFB59A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.NewsService.Web", "Finik.NewsService.Web\Finik.NewsService.Web.csproj", "{3F9115A8-1D15-4342-A338-E8747F039AB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B823884D-9BD3-4604-8980-F597E36E7870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B823884D-9BD3-4604-8980-F597E36E7870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B823884D-9BD3-4604-8980-F597E36E7870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B823884D-9BD3-4604-8980-F597E36E7870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D3CB43A-317E-4BED-813B-3E2C996A4B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D3CB43A-317E-4BED-813B-3E2C996A4B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D3CB43A-317E-4BED-813B-3E2C996A4B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D3CB43A-317E-4BED-813B-3E2C996A4B82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E620A1-8E7A-41E7-85AF-A2FFFCF094C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E620A1-8E7A-41E7-85AF-A2FFFCF094C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E620A1-8E7A-41E7-85AF-A2FFFCF094C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E620A1-8E7A-41E7-85AF-A2FFFCF094C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0ED797-C837-4AD7-9209-1AF56E053EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0ED797-C837-4AD7-9209-1AF56E053EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0ED797-C837-4AD7-9209-1AF56E053EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0ED797-C837-4AD7-9209-1AF56E053EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11DE875A-4B43-421A-A125-6F873E400839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DE875A-4B43-421A-A125-6F873E400839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DE875A-4B43-421A-A125-6F873E400839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DE875A-4B43-421A-A125-6F873E400839}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D562FB2-4A5D-4C65-954D-C89E7DAFB59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D562FB2-4A5D-4C65-954D-C89E7DAFB59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D562FB2-4A5D-4C65-954D-C89E7DAFB59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D562FB2-4A5D-4C65-954D-C89E7DAFB59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F9115A8-1D15-4342-A338-E8747F039AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9115A8-1D15-4342-A338-E8747F039AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9115A8-1D15-4342-A338-E8747F039AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9115A8-1D15-4342-A338-E8747F039AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1658F65-7E47-47AF-9D35-9944BD402F0F}
+	EndGlobalSection
+EndGlobal
