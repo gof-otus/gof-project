@@ -22,7 +22,7 @@ namespace Finik.Web.Controllers.v1
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id)
+        public async Task<ActionResult> Get(Guid id)
         {
             var news = await _newsManager.GetNews(id);
             if (news == null) { return NotFound(); }
@@ -38,14 +38,14 @@ namespace Finik.Web.Controllers.v1
         }
 
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] NewsDto value)
+        public async Task Put(Guid id, [FromBody] NewsDto value)
         {
             value.Id = id;
             await _newsManager.UpdateNews(value);
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(int id)
+        public async Task Delete(Guid id)
         {
             await _newsManager.DeleteNews(id);
         }

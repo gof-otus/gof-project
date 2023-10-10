@@ -13,9 +13,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.Web", "Finik.Web\Fini
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.Models", "Finik.Models\Finik.Models.csproj", "{2F975983-38F5-472C-9116-5BC0F4646FF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.Contracts", "Finik.Contracts\Finik.Contracts.csproj", "{096521C8-4989-41FC-B9BC-7E1DD636910B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.Contracts", "Finik.Contracts\Finik.Contracts.csproj", "{096521C8-4989-41FC-B9BC-7E1DD636910B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.DbData", "Finik.DbData\Finik.DbData.csproj", "{5573BA17-BBCE-4F52-85B6-46B5C1448533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.DbData", "Finik.DbData\Finik.DbData.csproj", "{5573BA17-BBCE-4F52-85B6-46B5C1448533}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Finik.AuthService", "Finik.AuthService", "{690352E0-7A47-48C4-AFEA-47B75B6FE963}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.AuthService.Web", "Finik.AuthService\Finik.AuthService.Web\Finik.AuthService.Web.csproj", "{796C7757-9145-4723-8FE7-AC79EC5A5528}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.AuthService.Contracts", "Finik.AuthService\Finik.AuthService.Contracts\Finik.AuthService.Contracts.csproj", "{9136A5DB-5178-4110-B097-4B8CE70259B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.AuthService.DataAccess", "Finik.AuthService\Finik.AuthService.DataAccess\Finik.AuthService.DataAccess.csproj", "{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.AuthService.Domain", "Finik.AuthService\Finik.AuthService.Domain\Finik.AuthService.Domain.csproj", "{F4D63465-9DA7-4238-849D-4A8528693B26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.AuthService.EF", "Finik.AuthService\Finik.AuthService.EF\Finik.AuthService.EF.csproj", "{D091F49B-9581-4AC3-A091-1CF6597D8E94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +63,36 @@ Global
 		{5573BA17-BBCE-4F52-85B6-46B5C1448533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5573BA17-BBCE-4F52-85B6-46B5C1448533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5573BA17-BBCE-4F52-85B6-46B5C1448533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{796C7757-9145-4723-8FE7-AC79EC5A5528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{796C7757-9145-4723-8FE7-AC79EC5A5528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{796C7757-9145-4723-8FE7-AC79EC5A5528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{796C7757-9145-4723-8FE7-AC79EC5A5528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9136A5DB-5178-4110-B097-4B8CE70259B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9136A5DB-5178-4110-B097-4B8CE70259B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9136A5DB-5178-4110-B097-4B8CE70259B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9136A5DB-5178-4110-B097-4B8CE70259B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4D63465-9DA7-4238-849D-4A8528693B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4D63465-9DA7-4238-849D-4A8528693B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4D63465-9DA7-4238-849D-4A8528693B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4D63465-9DA7-4238-849D-4A8528693B26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D091F49B-9581-4AC3-A091-1CF6597D8E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D091F49B-9581-4AC3-A091-1CF6597D8E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D091F49B-9581-4AC3-A091-1CF6597D8E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D091F49B-9581-4AC3-A091-1CF6597D8E94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{796C7757-9145-4723-8FE7-AC79EC5A5528} = {690352E0-7A47-48C4-AFEA-47B75B6FE963}
+		{9136A5DB-5178-4110-B097-4B8CE70259B6} = {690352E0-7A47-48C4-AFEA-47B75B6FE963}
+		{DD943AE2-5DAE-42D6-B313-4ABD48B45CCD} = {690352E0-7A47-48C4-AFEA-47B75B6FE963}
+		{F4D63465-9DA7-4238-849D-4A8528693B26} = {690352E0-7A47-48C4-AFEA-47B75B6FE963}
+		{D091F49B-9581-4AC3-A091-1CF6597D8E94} = {690352E0-7A47-48C4-AFEA-47B75B6FE963}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAB70B0D-69E0-4E05-968C-901A4AE42984}

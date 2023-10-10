@@ -7,5 +7,4 @@ public class FinikDbContext : DbContext
 {
     public FinikDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
     public DbSet<News> News { get; set; }
-    public DbSet<User> Users { get; set; }
 }

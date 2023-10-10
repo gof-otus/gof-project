@@ -29,7 +29,7 @@ public class NewsManager : INewsManager
         throw new NewsException("Already exist");
     }
 
-    public async Task DeleteNews(int id) => await _dbRepository.DeleteNews(id);
+    public async Task DeleteNews(Guid id) => await _dbRepository.DeleteNews(id);
 
     public async Task<IReadOnlyList<NewsDto>> GetAllNews()
     {
@@ -37,7 +37,7 @@ public class NewsManager : INewsManager
         return _mapper.Map<IReadOnlyList<NewsDto>>(allNews);
     }
 
-    public async Task<NewsDto?> GetNews(int id)
+    public async Task<NewsDto?> GetNews(Guid id)
     {
         var newsEntity = await _dbRepository.GetNews(id);
         return _mapper.Map<NewsDto>(newsEntity);

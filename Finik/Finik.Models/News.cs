@@ -2,7 +2,7 @@
 
 public class News
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     public required string HeadLine { get; set; }
 
@@ -10,8 +10,7 @@ public class News
 
     public DateTime CreatedAt { get; set; }
 
-    public int AuthorId { get; set; }
-    public required User Author { get; set; }
+    public Guid Author { get; set; }
 
     public bool IsPublished { get; set; } 
 

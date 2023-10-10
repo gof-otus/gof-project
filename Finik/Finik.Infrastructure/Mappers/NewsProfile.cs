@@ -9,6 +9,5 @@ public class NewsProfile : Profile
     public NewsProfile()
     {
         CreateMap<News, NewsDto>().ReverseMap();
-        CreateMap<User, UserDto>().ReverseMap();
     }
 }

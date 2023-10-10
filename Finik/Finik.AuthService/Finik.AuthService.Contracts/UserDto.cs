@@ -1,10 +1,12 @@
-﻿namespace Finik.Models;
+﻿namespace Finik.AuthService.Contracts;
 
-public class User
+public class UserDto
 {
-    public int Id { get; set; } 
+    public Guid Id { get; set; }
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
     public string? NickName { get; set; }
     public required string Email { get; set; }
+    public required string Password { get; set; }
+    public Role Role { get; set; }
 }
