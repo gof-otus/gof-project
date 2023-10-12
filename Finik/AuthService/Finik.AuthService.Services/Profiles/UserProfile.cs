@@ -11,6 +11,9 @@ public class UserProfile : Profile
         CreateMap<Contracts.Role, Domain.Models.Role>().ConvertUsing(
             source => new Domain.Models.Role() { Id = (int)source, Name = source.ToString() });
         CreateMap<Domain.Models.Role, Contracts.Role>().ConvertUsing(source => Enum.Parse<Contracts.Role>(source.Name));
-        CreateMap<UserDto, User>().ReverseMap();
+        CreateMap<UserDto, User>()
+            .ForMember(u => u.Role,s => s.MapFrom(x => x.Role))
+            .ReverseMap()
+            .ForMember(u => u.Role, s => s.MapFrom(u => u.Role));
     }
 }

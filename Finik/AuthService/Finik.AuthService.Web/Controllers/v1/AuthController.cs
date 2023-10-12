@@ -1,4 +1,5 @@
-﻿using Finik.AuthService.Contracts;
+﻿using Asp.Versioning;
+using Finik.AuthService.Contracts;
 using Finik.AuthService.Core;
 using Finik.AuthService.Web.Attributes;
 using Finik.AuthService.Web.Models;
@@ -39,12 +40,10 @@ namespace Finik.AuthService.Web.Controllers.v1
             return Unauthorized();
         }
 
-        [HttpGet("users/{identity?}")]
-        public async Task<ActionResult> GetUser([FromRoute] string identity)
+        [HttpGet("users/{id:guid?}")]
+        public async Task<ActionResult> GetUser([FromRoute] Guid id)
         {
-            var user = Guid.TryParse(identity, out var guid)
-                ? await _userManager.GetUser(guid)
-                : await _userManager.GetUser(identity);
+            var user = await _userManager.GetUser(id);
 
             if (user is not null)
             {
