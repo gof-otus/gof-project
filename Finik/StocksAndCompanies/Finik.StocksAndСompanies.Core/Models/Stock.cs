@@ -8,5 +8,6 @@ public class Stock
     public int TradeCode { get; set; }
     public int Category { get; set; }
     public int CompanyId { get; set; }
+    public DateTime? DeleteDate { get; set; }
     public required Company Company { get; set; }
 }

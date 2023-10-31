@@ -7,6 +7,6 @@ public class Company
     public required string FullName { get; set; }
     public int Inn { get; set; }
     public string? WebSite { get; set; }
-    public List<Company>? Stocks { get; } = new List<Company>();
+    public DateTime? DeleteDate { get; set; }
+    public List<Stock>? Stocks { get; } = new List<Stock>();
 }
-
