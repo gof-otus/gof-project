@@ -1,4 +1,5 @@
-﻿using Finik.AuthService.Core;
+﻿using Asp.Versioning;
+using Finik.AuthService.Core;
 using Finik.AuthService.DataAccess;
 using Finik.AuthService.EF;
 using Finik.AuthService.EF.Repositories;
@@ -6,7 +7,6 @@ using Finik.AuthService.Services;
 using Finik.AuthService.Services.Profiles;
 using Finik.AuthService.Web.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -38,7 +38,7 @@ public class Startup
                 ValidIssuer = Configuration["AuthOptions:Issuer"],
                 ValidAudience = Configuration["AuthOptions:Audience"],
                 IssuerSigningKey = new SymmetricSecurityKey
-                (Encoding.UTF8.GetBytes(Configuration["AuthOptions:Key"])),
+                (Encoding.UTF8.GetBytes(Configuration["AuthOptions:Key"]!)),
                 ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateLifetime = true,
@@ -66,6 +66,12 @@ public class Startup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+
+        services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = Configuration["Cache:Host"];
+            options.InstanceName = Configuration["Cache:Name"];
+        });
 
         services.Configure<AuthOptions>(Configuration.GetSection("AuthOptions"));
     }
