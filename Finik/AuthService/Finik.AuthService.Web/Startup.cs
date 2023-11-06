@@ -55,8 +55,9 @@ public class Startup
         });
 
         services.AddScoped<IUserRepository, UsersEfRepository>();
-        services.AddScoped<IUserManager, UserManager>();
+        services.AddScoped<IUserService, UserService>();
         services.AddSingleton<IAuthManager, JwtTokenManager>();
+        services.AddSingleton<IPasswordManager, SaltedPasswordManager>();
         services.AddAutoMapper(typeof(UserProfile));
         services.AddDbContext<AuthDbContext>(options =>
         {
