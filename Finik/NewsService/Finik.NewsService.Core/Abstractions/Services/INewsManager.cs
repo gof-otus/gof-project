@@ -4,9 +4,10 @@ namespace Finik.NewsService.Core.Abstractions.Services;
 
 public interface INewsManager
 {
-    public Task<IReadOnlyList<NewsDto>> GetAllNews();
-    public Task<NewsDto?> GetNews(Guid id);
-    public Task<NewsDto> CreateNews(NewsDto news);
-    public Task DeleteNews(Guid id);
-    public Task UpdateNews(NewsDto news);
+    Task<IReadOnlyList<NewsDto>> GetAllNews();
+    Task<NewsDto?> GetNews(Guid id);
+    Task<NewsDto> CreateNews(NewsDto news);
+    Task DeleteNews(Guid id);
+    Task UpdateNews(NewsDto news);
+    Task Publish(NewsDto news);
 }
