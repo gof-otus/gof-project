@@ -9,12 +9,12 @@ using System.Text.Json;
 
 namespace Finik.AuthService.Services;
 
-public class UserManager : IUserManager
+public class UserService : IUserService
 {
     private readonly IDistributedCache _userCache;
     private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
-    public UserManager(IDistributedCache userCache, IUserRepository userRepository, IMapper mapper)
+    public UserService(IDistributedCache userCache, IUserRepository userRepository, IMapper mapper)
     {
         _userCache = userCache;
         _userRepository = userRepository;
@@ -79,6 +79,11 @@ public class UserManager : IUserManager
         }
 
         return user;
+    }
+
+    public async Task<UserDto?> GetUser(string email)
+    {
+        return _mapper.Map<UserDto>(await _userRepository.GetUser(email));
     }
 
     public async Task UpdateUser(UserDto user)
