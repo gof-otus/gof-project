@@ -34,9 +34,18 @@ namespace Finik.NewsService.Web.Controllers.v1
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] NewsDto value)
+        public async Task<ActionResult> Post([FromBody] CreateNewsRequest reuest)
         {
-            var result = await _newsManager.CreateNews(value);
+            var dto = new NewsDto()
+            {
+                HeadLine = reuest.HeadLine,
+                Body = reuest.Body,
+                Author = Guid.Parse(HttpContext.User.FindFirst("id")!.Value),
+                CreatedAt = DateTime.UtcNow,
+                Id = Guid.NewGuid(),
+                IsPublished = false,
+            };
+            var result = await _newsManager.CreateNews(dto);
             if (result == null) { return BadRequest(); }
             return Ok(result);
         }

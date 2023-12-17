@@ -28,14 +28,12 @@ public class NewsEfRepository : INewsDbRepository
         }
     }
 
-    public async Task<IReadOnlyList<News>> GetAllNews() => await _dbContext.News.Include(n => n.Author).ToListAsync();
+    public async Task<IReadOnlyList<News>> GetAllNews() => await _dbContext.News.ToListAsync();
 
-    public async Task<News?> GetNews(Guid id) => await _dbContext.News.Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == id);
+    public async Task<News?> GetNews(Guid id) => await _dbContext.News.SingleOrDefaultAsync(n => n.Id == id);
 
     public async Task UpdateNews(News news)
     {
-        if (await _dbContext.News.Include(n => n.Author).SingleOrDefaultAsync(n => n.Id == news.Id) is null) 
-            throw new ArgumentException($"New with id {news.Id} doesn't exits");
         _dbContext.News.Update(news);
         await _dbContext.SaveChangesAsync();
     }

@@ -48,15 +48,16 @@ public class NewsManager : INewsManager
 
     public async Task Publish(NewsDto news)
     {
-        await _newsPublisher.Publish(news);
+        _newsPublisher.Publish(news);
         news.IsPublished = true;
-        news.PublishedAt = DateTime.Now;
+        news.PublishedAt = DateTime.UtcNow;
         await UpdateNews(news);
     }
 
     public async Task UpdateNews(NewsDto newsDto)
     {
-        var newsEntity = _mapper.Map<News>(newsDto);
+        var newsEntity = await _dbRepository.GetNews(newsDto.Id);
+        _mapper.Map(newsDto, newsEntity);
         await _dbRepository.UpdateNews(newsEntity);
     }
 }
