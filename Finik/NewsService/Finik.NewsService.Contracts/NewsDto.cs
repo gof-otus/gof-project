@@ -14,5 +14,5 @@ public class NewsDto
 
     public bool IsPublished { get; set; }
 
-    public DateTime PublishedAt { get; set; }
+    public DateTime? PublishedAt { get; set; }
 }

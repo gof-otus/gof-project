@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
+using Finik.NewsService.Infrastructure;
 
 namespace Finik.NewsService.Web;
 
@@ -58,13 +59,14 @@ public class Startup
         services.AddScoped<INewsDbRepository, NewsEfRepository>();
         services.AddScoped<INewsPublisher, RabbitNewsPublisher>();
         services.AddAutoMapper(typeof(NewsProfile));
-        var connectionString = Configuration.GetConnectionString("PostgresFinikDb");
+        var connectionString = Configuration.GetConnectionString("PostgresFinikNewsDb");
         services.AddDbContext<FinikDbContext>(options => options.UseNpgsql(connectionString));
 
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+        services.Configure<RabbitMqOptions>(Configuration.GetSection("RabbitMq"));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
