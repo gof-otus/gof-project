@@ -17,12 +17,12 @@ namespace Finik.StocksAndCompanies.WebApi.Controllers.v1
             _companyManager = companyManager;
         }
 
-        // GET: api/<CompanyController>
-        [HttpGet]
-        public async Task<List<Company>> Get()
-        {
-            return await _companyManager.GetAllCompanies();
-        }
+        //// GET: api/<CompanyController>
+        //[HttpGet]
+        //public async Task<List<Company>> Get()
+        //{
+        //    return await _companyManager.GetAllCompanies();
+        //}
 
         // GET api/<CompanyController>/5
         [HttpGet("{id}")]

@@ -17,12 +17,12 @@ namespace Finik.StocksAndCompanies.WebApi.Controllers.v1
             _stockManager = stockManager;
         }
 
-        // GET: api/<StockController>
-        [HttpGet]
-        public async Task<List<Stock>> Get()
-        {
-            return await _stockManager.GetAllStocks();
-        }
+        //// GET: api/<StockController>
+        //[HttpGet]
+        //public async Task<List<Stock>> Get()
+        //{
+        //    return await _stockManager.GetAllStocks();
+        //}
 
         // GET api/<StockController>/5
         [HttpGet("{id}")]

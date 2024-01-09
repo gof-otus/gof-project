@@ -4,6 +4,7 @@ using Finik.StockAndCompany.Core.Interfaces;
 using Finik.StockAndCompany.Core.Services;
 using Finik.StockAndCompany.Core.Repositories;
 using Finik.StocksAndCompanies.EfData.Repositories;
+using Finik.StocksAndCompanies.WebApi.HostedServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,11 +15,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddApiVersioning();
-builder.Services.AddScoped<IStockManager, StockManager>();
-builder.Services.AddScoped<IStockRepository, StockRepository>();
-builder.Services.AddScoped<ICompanyManager, CompanyManager>();
-builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
-builder.Services.AddDbContext<StockAndCompaniesDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("FinikSecurities")));
+builder.Services.AddTransient<IStockManager, StockManager>();
+builder.Services.AddTransient<IStockRepository, StockRepository>();
+builder.Services.AddTransient<ICompanyManager, CompanyManager>();
+builder.Services.AddTransient<ICompanyRepository, CompanyRepository>();
+builder.Services.AddDbContext<StockAndCompaniesDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("FinikSecurities")), ServiceLifetime.Transient, ServiceLifetime.Transient);
+builder.Services.AddHostedService<Grabber>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

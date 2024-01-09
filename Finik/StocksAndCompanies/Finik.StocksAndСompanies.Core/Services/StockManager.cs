@@ -12,6 +12,10 @@ namespace Finik.StockAndCompany.Core.Services
         {
             _stockRepository = stockRepository;
         }
+        public Task<int> CreateStock(Stock stock)
+        {
+            return _stockRepository.CreateStock(stock);
+        }
 
         public Task<Stock?> GetStock(int id)
         {

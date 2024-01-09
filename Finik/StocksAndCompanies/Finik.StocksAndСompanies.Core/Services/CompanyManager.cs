@@ -13,6 +13,11 @@ namespace Finik.StockAndCompany.Core.Services
             _companyRepository = companyRepository;
         }
 
+        public Task<int> CreateCompany(Company company)
+        {
+            return _companyRepository.CreateCompany(company);
+        }
+
         public Task<Company?> GetCompany(int id)
         {
             return _companyRepository.GetCompany(id);

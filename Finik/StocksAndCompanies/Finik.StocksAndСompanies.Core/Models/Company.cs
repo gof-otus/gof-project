@@ -1,4 +1,6 @@
-﻿namespace Finik.StockAndCompany.Core.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace Finik.StockAndCompany.Core.Models;
 
 public class Company
 {
@@ -6,5 +8,7 @@ public class Company
     public required string NickName { get; set; }
     public required string FullName { get; set; }
     public String? Inn { get; set; }
-    public List<Stock>? Stocks { get; } = new List<Stock>();
+    
+    [JsonIgnore]
+    public List<Stock>? Stocks { get; set; } = new ();
 }
