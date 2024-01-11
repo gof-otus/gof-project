@@ -1,19 +1,20 @@
-﻿using Asp.Versioning;
-using Finik.AuthService.Core;
-using Finik.AuthService.DataAccess;
-using Finik.AuthService.EF;
-using Finik.AuthService.EF.Repositories;
-using Finik.AuthService.Services;
-using Finik.AuthService.Services.Profiles;
-using Finik.AuthService.Web.Swagger;
+﻿using Finik.Data.Repositories;
+using Finik.Data;
+using Finik.NewsService.Core.Abstractions.Services;
+using Finik.NewsService.DbData;
+using Finik.NewsService.Infrastructure.Mappers;
+using Finik.NewsService.Infrastructure.Services;
+using Finik.NewsService.Web.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
+using Finik.NewsService.Infrastructure;
 
-namespace Finik.AuthService.Web;
+namespace Finik.NewsService.Web;
 
 public class Startup
 {
@@ -54,33 +55,24 @@ public class Startup
             options.DefaultApiVersion = ApiVersion.Default;
         });
 
-        services.AddScoped<IUserRepository, UsersEfRepository>();
-        services.AddScoped<IUserService, UserService>();
-        services.AddSingleton<IAuthManager, JwtTokenManager>();
-        services.AddSingleton<IPasswordManager, SaltedPasswordManager>();
-        services.AddAutoMapper(typeof(UserProfile));
-        services.AddDbContext<AuthDbContext>(options =>
-        {
-            options.UseNpgsql(Configuration.GetConnectionString("PostgresFinikDb"));
-        });
+        services.AddScoped<INewsManager, NewsManager>();
+        services.AddScoped<INewsDbRepository, NewsEfRepository>();
+        services.AddScoped<INewsPublisher, RabbitNewsPublisher>();
+        services.AddAutoMapper(typeof(NewsProfile));
+        var connectionString = Configuration.GetConnectionString("PostgresFinikNewsDb");
+        services.AddDbContext<FinikDbContext>(options => options.UseNpgsql(connectionString));
+
 
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-
-        services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = Configuration["Cache:Host"];
-            options.InstanceName = Configuration["Cache:Name"];
-        });
-
-        services.Configure<AuthOptions>(Configuration.GetSection("AuthOptions"));
+        services.Configure<RabbitMqOptions>(Configuration.GetSection("RabbitMq"));
     }
 
-    public void Configure(IApplicationBuilder app , IWebHostEnvironment env)
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if(env.IsDevelopment())
-{
+        if (env.IsDevelopment())
+        {
             app.UseSwagger();
             app.UseSwaggerUI();
         }

@@ -10,6 +10,8 @@ public class User
 
     public required string Password { get; set; }
 
+    public required string Salt { get; set; }
+
     public required int RoleId { get; set; }
-    public Role Role { get; set; }
+    public required Role Role { get; set; }
 }

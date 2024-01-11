@@ -11,10 +11,13 @@ public class NewsManager : INewsManager
 {
     private readonly IMapper _mapper;
     private readonly INewsDbRepository _dbRepository;
-    public NewsManager(IMapper mapper, INewsDbRepository dbRepository)
+    private readonly INewsPublisher _newsPublisher;
+
+    public NewsManager(IMapper mapper, INewsDbRepository dbRepository, INewsPublisher newsPublisher)
     {
         _mapper = mapper;
         _dbRepository = dbRepository;
+        _newsPublisher = newsPublisher;
     }
 
     public async Task<NewsDto> CreateNews(NewsDto newsDto)
@@ -43,9 +46,18 @@ public class NewsManager : INewsManager
         return _mapper.Map<NewsDto>(newsEntity);
     }
 
+    public async Task Publish(NewsDto news)
+    {
+        _newsPublisher.Publish(news);
+        news.IsPublished = true;
+        news.PublishedAt = DateTime.UtcNow;
+        await UpdateNews(news);
+    }
+
     public async Task UpdateNews(NewsDto newsDto)
     {
-        var newsEntity = _mapper.Map<News>(newsDto);
+        var newsEntity = await _dbRepository.GetNews(newsDto.Id);
+        _mapper.Map(newsDto, newsEntity);
         await _dbRepository.UpdateNews(newsEntity);
     }
 }

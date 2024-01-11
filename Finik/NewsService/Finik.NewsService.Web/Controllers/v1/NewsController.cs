@@ -1,10 +1,14 @@
 ﻿using Finik.NewsService.Contracts;
 using Finik.NewsService.Core.Abstractions.Services;
+using Finik.NewsService.Web.DTO;
+using Finik.NewsService.Web.Extensions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Finik.NewsService.Web.Controllers.v1
 {
     [Route("api/v{version:apiVersion}/[controller]")]
+    [Authorize]
     [ApiVersion("1.0")]
     [ApiController]
     public class NewsController : ControllerBase
@@ -30,24 +34,72 @@ namespace Finik.NewsService.Web.Controllers.v1
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] NewsDto value)
+        public async Task<ActionResult> Post([FromBody] CreateNewsRequest reuest)
         {
-            var result = await _newsManager.CreateNews(value);
+            var dto = new NewsDto()
+            {
+                HeadLine = reuest.HeadLine,
+                Body = reuest.Body,
+                Author = Guid.Parse(HttpContext.User.FindFirst("id")!.Value),
+                CreatedAt = DateTime.UtcNow,
+                Id = Guid.NewGuid(),
+                IsPublished = false,
+            };
+            var result = await _newsManager.CreateNews(dto);
             if (result == null) { return BadRequest(); }
             return Ok(result);
         }
 
         [HttpPut("{id}")]
-        public async Task Put(Guid id, [FromBody] NewsDto value)
-        {
-            value.Id = id;
-            await _newsManager.UpdateNews(value);
+        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateNewsRequest updateNewsRequest)
+        {          
+            var news = await _newsManager.GetNews(id);
+
+            if (news != null) 
+            {
+                var userId = HttpContext.User.FindFirst("id")?.Value;
+
+                if (news.Author.ToString() != userId && HttpContext.User.IsInRole(Role.Author.ToString()))
+                {
+                    return Forbid();
+                }
+
+                await _newsManager.UpdateNews(news.FromUpdateRequest(updateNewsRequest));
+                return Ok();
+            }
+
+            return NotFound();         
         }
 
         [HttpDelete("{id}")]
-        public async Task Delete(Guid id)
+        public async Task<ActionResult> Delete(Guid id)
         {
+            if (!HttpContext.User.IsInRole(Role.Administrator.ToString()))
+            {
+                return Forbid();
+            }
+
             await _newsManager.DeleteNews(id);
+            return Ok();
+        }
+
+        [HttpPost("publish/{id}")]
+        public async Task<ActionResult> Publish(Guid id)
+        {
+            var news = await _newsManager.GetNews(id);
+
+            if (news != null)
+            {
+                if (HttpContext.User.IsInRole(Role.Author.ToString()))
+                {
+                    return Forbid();
+                }
+
+                await _newsManager.Publish(news);
+                return Ok();
+            }
+
+            return NotFound();
         }
     }
 }
