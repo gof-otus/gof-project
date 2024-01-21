@@ -6,13 +6,13 @@ using Finik.NewsService.Infrastructure.Mappers;
 using Finik.NewsService.Infrastructure.Services;
 using Finik.NewsService.Web.Swagger;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text;
 using Finik.NewsService.Infrastructure;
+using Asp.Versioning;
 
 namespace Finik.NewsService.Web;
 
