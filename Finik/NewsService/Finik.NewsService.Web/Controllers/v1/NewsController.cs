@@ -1,4 +1,5 @@
-﻿using Finik.NewsService.Contracts;
+﻿using Asp.Versioning;
+using Finik.NewsService.Contracts;
 using Finik.NewsService.Core.Abstractions.Services;
 using Finik.NewsService.Web.DTO;
 using Finik.NewsService.Web.Extensions;

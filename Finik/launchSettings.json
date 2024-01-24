@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "finik.newsservice.web": "StartDebugging",
+        "finik.authservice.web": "StartDebugging",
+        "finik.stocksandcompanies.webapi": "StartDebugging"
+      }
+    }
+  }
+}
