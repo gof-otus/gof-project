@@ -5,5 +5,9 @@
         public required string HeadLine { get; set; }
 
         public required string Body { get; set; }
+
+        public int? Companyid { get; set; }
+
+        public int? StockId { get; set; }
     }
 }

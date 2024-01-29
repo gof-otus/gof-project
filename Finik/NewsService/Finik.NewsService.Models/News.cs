@@ -12,6 +12,10 @@ public class News
 
     public Guid Author { get; set; }
 
+    public int? CompanyId { get; set; }
+    
+    public int? StockId { get; set; }
+
     public bool IsPublished { get; set; }
 
     public DateTime? PublishedAt { get; set; }

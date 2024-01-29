@@ -1,4 +1,4 @@
-﻿namespace Finik.NewsService.Contracts;
+﻿namespace Finik.MainPage.Contracts;
 
 public class NewsDto
 {

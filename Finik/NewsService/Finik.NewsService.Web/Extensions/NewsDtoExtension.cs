@@ -15,7 +15,8 @@ namespace Finik.NewsService.Web.Extensions
             {
                 newsDto.Body = updateRequest.Body;
             }
-
+            newsDto.CompanyId = updateRequest.Companyid;
+            newsDto.StockId = updateRequest.StockId;
             return newsDto;
         }
     }

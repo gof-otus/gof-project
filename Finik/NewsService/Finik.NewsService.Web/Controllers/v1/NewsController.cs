@@ -34,12 +34,14 @@ namespace Finik.NewsService.Web.Controllers.v1
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateNewsRequest reuest)
+        public async Task<ActionResult> Post([FromBody] CreateNewsRequest request)
         {
             var dto = new NewsDto()
             {
-                HeadLine = reuest.HeadLine,
-                Body = reuest.Body,
+                HeadLine = request.HeadLine,
+                Body = request.Body,
+                CompanyId = request.Companyid,
+                StockId = request.StockId,
                 Author = Guid.Parse(HttpContext.User.FindFirst("id")!.Value),
                 CreatedAt = DateTime.UtcNow,
                 Id = Guid.NewGuid(),
