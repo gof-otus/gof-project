@@ -20,7 +20,13 @@ namespace Finik.NewsService.Infrastructure.Services
         {
             var message = JsonSerializer.Serialize(newsDto);
 
-            var factory = new ConnectionFactory() { HostName = _rabbitMqOptions.Host };
+            var factory = new ConnectionFactory() 
+            { 
+                HostName = _rabbitMqOptions.Host, 
+                Port = 5677,
+                UserName = "finik",
+                Password = "otus5"
+            };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {

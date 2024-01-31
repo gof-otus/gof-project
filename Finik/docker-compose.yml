@@ -35,14 +35,24 @@ services:
     depends_on: 
       - postgres_db
 
+  finik.mainpage.web:
+    image: ${DOCKER_REGISTRY-}finikmainpageweb
+    build:
+      context: .
+      dockerfile: Finik.MainPage.Web/Dockerfile
+    networks:
+      - finik-dev
+    depends_on: 
+      - postgres_db
+
   rabbitmq:
     container_name: finik-rabbitmq
     image: rabbitmq:3-management
     networks:
       - finik-dev
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - "15677:15672"
+      - "5677:5672"
 
   redis:
     container_name: finik-redis
@@ -61,7 +71,7 @@ services:
     environment:
       POSTGRES_PASSWORD: otus5
     ports:
-      - "5432:5432"
+      - "5437:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
 

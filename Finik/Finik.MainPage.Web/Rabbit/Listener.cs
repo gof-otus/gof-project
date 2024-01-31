@@ -30,7 +30,7 @@ namespace Finik.MainPage.Web.Rabbit
                 HostName = _rabbitMqOptions.Host, 
                 Port = 5677, 
                 UserName = "finik", 
-                Password = "1234"
+                Password = "otus5"
             };
             _connection = factory.CreateConnection();
             _channel = _connection.CreateModel();

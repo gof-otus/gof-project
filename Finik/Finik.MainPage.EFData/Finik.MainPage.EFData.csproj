@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Finik.MainPage.Core\Finik.MainPage.Core.csproj" />
-    <ProjectReference Include="..\Finik.MainPage.Web\Finik.MainPage.Web.csproj" />
   </ItemGroup>
 
   <ItemGroup>
