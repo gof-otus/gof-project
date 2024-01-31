@@ -20,7 +20,7 @@ public class NewsEfRepository : INewsDbRepository
 
     public async Task DeleteNews(Guid id)
     {
-        var newsToDelete = await _dbContext.News.SingleOrDefaultAsync(n => n.Id == id);
+        var newsToDelete = await _dbContext.News.FindAsync(id);
         if (newsToDelete is not null)
         {
             _dbContext.News.Remove(newsToDelete);
@@ -30,7 +30,7 @@ public class NewsEfRepository : INewsDbRepository
 
     public async Task<IReadOnlyList<News>> GetAllNews() => await _dbContext.News.ToListAsync();
 
-    public async Task<News?> GetNews(Guid id) => await _dbContext.News.SingleOrDefaultAsync(n => n.Id == id);
+    public async Task<News?> GetNews(Guid id) => await _dbContext.News.FindAsync(id);
 
     public async Task UpdateNews(News news)
     {

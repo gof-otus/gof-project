@@ -1,4 +1,5 @@
-﻿using Finik.StockAndCompany.Core.Interfaces;
+﻿using Asp.Versioning;
+using Finik.StockAndCompany.Core.Interfaces;
 using Finik.StockAndCompany.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 

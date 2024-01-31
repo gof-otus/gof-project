@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Finik.MainPage.EFData", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Finik.MainPage.Infrastructure", "Finik.MainPage.Infrastructure\Finik.MainPage.Infrastructure.csproj", "{ED65038F-94D1-4860-9253-3175AB85900D}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{459491DF-4286-4961-A25C-B815D2BAEFA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{ED65038F-94D1-4860-9253-3175AB85900D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED65038F-94D1-4860-9253-3175AB85900D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED65038F-94D1-4860-9253-3175AB85900D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459491DF-4286-4961-A25C-B815D2BAEFA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{459491DF-4286-4961-A25C-B815D2BAEFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{459491DF-4286-4961-A25C-B815D2BAEFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{459491DF-4286-4961-A25C-B815D2BAEFA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
